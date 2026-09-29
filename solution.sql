@@ -1,35 +1,7 @@
-CREATE DATABASE CollegeDB;
-USE CollegeDB;
+SET @num1 = 10;
+SET @num2 = 20;
+SET @sum = @num1 + @num2;
 
-
-CREATE TABLE Department (
-    DepartmentID INT PRIMARY KEY,
-    DepartmentName VARCHAR(50)
-);
-
-
-CREATE TABLE Faculty (
-    FacultyID INT PRIMARY KEY,
-    FacultyName VARCHAR(50),
-    DepartmentID INT,
-    FOREIGN KEY (DepartmentID)
-        REFERENCES Department(DepartmentID)
-);
-
-
-CREATE TABLE Course (
-    CourseID INT PRIMARY KEY,
-    CourseName VARCHAR(50),
-    FacultyID INT,
-    FOREIGN KEY (FacultyID)
-        REFERENCES Faculty(FacultyID)
-);
-
-
-CREATE TABLE Student (
-    StudentID INT PRIMARY KEY,
-    StudentName VARCHAR(50),
-    CourseID INT,
-    FOREIGN KEY (CourseID)
-        REFERENCES Course(CourseID)
-);
+SELECT @num1 AS Number1,
+       @num2 AS Number2,
+       @sum AS Sum;
